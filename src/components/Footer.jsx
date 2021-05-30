@@ -1,6 +1,6 @@
 export function Footer(){
     return (
-        <footer>
+        <footer className="footer" style={{backgroundColor: "rgba(25, 25, 112, 0.7)"}}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 col-md-10 mx-auto">
@@ -29,8 +29,8 @@ export function Footer(){
                                     </span>
                                 </a>
                             </li>
+                            <p className="copyright text-warning">Copyright &copy; Your Website 2021</p>
                         </ul>
-                        <p className="copyright text-muted">Copyright &copy; Your Website 2021</p>
                     </div>
                 </div>
             </div>

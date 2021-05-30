@@ -1,21 +1,50 @@
-export function Menu(){
+import {NavLink} from "react-router-dom";
+import React from "react";
+
+export class Menu extends React.Component{
+    exit() {
+        fetch('http://yurylook.beget.tech/exitReact')
+        .then(response=>response.text())
+        .then(result=>{
+            window.location.href='/';
+        })
+    }
+    render() {
     return (
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div className="container">
+                <NavLink className="navbar-brand" to="#"></NavLink>
+                <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
-                    <i class="fas fa-bars"></i>
+                    <i className="fas fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="post.html">Sample Post</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <div className="collapse navbar-collapse" id="navbarResponsive">
+                    <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <NavLink className="nav-link" exact to="/">Главная</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/about">О нас</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/add-bet">Добавить результат</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/get-bet">Аналитика</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/reg-user">Регистрация</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/auth">Авторизация</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <button className="nav-link" onClick={this.exit} style={{backgroundColor: "rgba(255, 165, 0, 0.7)"}}>Выход</button>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     )
+ }
 }
